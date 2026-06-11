@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Molom-Ochir"
+  given-names: "Tergel"
+title: "CAMformer: Energy-Efficient Sparse Attention Accelerator Using Content-Addressable Memory"
+version: 1.0.0
+date-released: 2025-01-01
+url: "https://github.com/tmo324/CAMformerV1"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Molom-Ochir"
+    given-names: "Tergel"
+  title: "CAMformer: Energy-Efficient Sparse Attention Accelerator Using Content-Addressable Memory"
+  journal: "arXiv preprint arXiv:2511.19740"
+  year: 2025

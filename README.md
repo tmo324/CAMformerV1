@@ -1,6 +1,35 @@
-# CAMformerV1 Simulator
+<h1 align="center">CAMformerV1</h1>
 
-This repository contains the event-driven architectural simulator for **CAMformer**, an energy-efficient sparse attention accelerator utilizing Content-Addressable Memory (CAM).
+<p align="center">
+  <strong>Energy-Efficient Sparse Attention Accelerator Using Content-Addressable Memory</strong>
+</p>
+
+<p align="center">
+  <a href="#overview">Architecture</a> ·
+  <a href="#installation">Quick Start</a> ·
+  <a href="REPRODUCIBILITY.md">Reproduce Results</a> ·
+  <a href="#citation">Citation</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/tmo324/CAMformerV1/actions/workflows/ci.yml">
+    <img src="https://github.com/tmo324/CAMformerV1/actions/workflows/ci.yml/badge.svg" alt="CI">
+  </a>
+  <a href="https://github.com/tmo324/CAMformerV1/actions/workflows/secret-scan.yml">
+    <img src="https://github.com/tmo324/CAMformerV1/actions/workflows/secret-scan.yml/badge.svg" alt="Secret scan">
+  </a>
+  <img src="https://img.shields.io/badge/python-3.8--3.12-3776AB?logo=python&logoColor=white" alt="Python Supported">
+  <a href="CITATION.cff">
+    <img src="https://img.shields.io/badge/citation-CFF-4B8BBE" alt="Citation CFF">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-lightgrey" alt="MIT License">
+  </a>
+</p>
+
+---
+
+This repository contains the event-driven architectural simulator for **CAMformer**.
 
 ## Overview
 CAMformer accelerates the multi-head attention mechanism by performing highly parallel associative searches in hardware, bypassing the need to fetch and compute full $Q \times K^T$ similarity matrices. This repository provides:
@@ -10,38 +39,39 @@ CAMformer accelerates the multi-head attention mechanism by performing highly pa
 
 ## Installation
 
-We recommend using a virtual environment (e.g. `conda` or `venv`):
+We provide a modern Python package structure (`pyproject.toml`) for standard installation. We recommend using a virtual environment (e.g., `conda` or `venv`):
+
 ```bash
 # Clone the repository
 git clone https://github.com/tmo324/CAMformerV1.git
 cd CAMformerV1
 
-# Install requirements
-pip install -r requirements.txt
+# Install the package and dependencies
+make install
+
+# To install with testing dependencies:
+make install-test
 ```
 
 ## Running the Simulator
 
-### 1. Validate Paper Results
-To run the full simulation and validate the metrics (Cycles, Energy, Area, Throughput) against the reference hardware model:
+### Tests
+We include standard test suites for both the analytical models and the SST event-driven wrappers. To run all tests:
 ```bash
-python compare_with_paper.py
+make test
 ```
-This script will output the stage-by-stage cycle breakdown and component-wise energy breakdowns, confirming a <5% tolerance match with the published targets.
 
-### 2. Sensitivity Study
-To reproduce the Top-$k$ sparsity and tile size sweep table:
+### Reproducing Paper Results
+For detailed, step-by-step instructions on validating the paper's target metrics and generating the sensitivity study figures, please refer to the dedicated [REPRODUCIBILITY.md](REPRODUCIBILITY.md) guide. You can generate all paper results automatically with:
 ```bash
-python sensitivity_study.py
+make paper
 ```
-*Note: This script will generate `sensitivity_study.svg` and print the analytical tables to the console.*
 
-### 3. Run Tests
-The repository includes standard test suites for both the analytical models and the SST event-driven wrappers:
-```bash
-python test_camformer.py
-python test_sst.py
-```
+## Governance & Community
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Contributing Guidelines](CONTRIBUTING.md)
+- [Security Policy](SECURITY.md)
+- [Third-Party Notices](THIRD_PARTY_NOTICES.md)
 
 ## Citation
 
