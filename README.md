@@ -1,7 +1,7 @@
 <h1 align="center">CAMformerV1</h1>
 
 <p align="center">
-  <strong>Energy-Efficient Sparse Attention Accelerator Using Content-Addressable Memory</strong>
+  <strong>Binary Associative Memory Is All You Need</strong>
 </p>
 
 <p align="center">

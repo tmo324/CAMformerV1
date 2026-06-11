@@ -8,7 +8,7 @@ version = "1.0.0"
 authors = [
   { name="Tergel Molom-Ochir" },
 ]
-description = "Event-driven architectural simulator for CAMformer, an energy-efficient sparse attention accelerator utilizing Content-Addressable Memory."
+description = "Event-driven architectural simulator for CAMformer: Binary Associative Memory Is All You Need."
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
