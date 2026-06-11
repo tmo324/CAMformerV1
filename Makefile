@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 PYTHON ?= python3
 
-.PHONY: install install-test test paper clean
+.PHONY: install install-test test check paper clean
 
 install:
 	$(PYTHON) -m pip install -e .
@@ -12,6 +12,10 @@ install-test:
 test:
 	$(PYTHON) tests/test_camformer.py
 	$(PYTHON) tests/test_sst.py
+
+check:
+	$(PYTHON) -m compileall -q src tests experiments
+	$(MAKE) test
 
 paper:
 	$(PYTHON) compare_with_paper.py
