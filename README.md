@@ -77,11 +77,12 @@ make paper
 
 If you find this code useful in your research, please cite our paper:
 ```bibtex
-@article{molomochir2025camformer,
-  title={CAMformer: Energy-Efficient Sparse Attention Accelerator Using Content-Addressable Memory},
-  author={Molom-Ochir, Tergel and others},
-  journal={arXiv preprint arXiv:2511.19740},
-  year={2025}
+@article{molomochir2026camformer,
+  author={Molom-Ochir, Tergel and Morris, Benjamin F. and Horton, Mark and Wei, Chiyue and Guo, Cong and Taylor, Brady and Liu, Peter and Wang, Shan X. and Fan, Deliang and Li, Hai and Chen, Yiran},
+  journal={IEEE Transactions on Circuits and Systems I: Regular Papers}, 
+  title={CAMformer: Binary Associative Memory Is All You Need}, 
+  year={2026},
+  doi={10.1109/TCSI.2026.3692014}
 }
 ```
 
