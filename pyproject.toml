@@ -25,3 +25,7 @@ dependencies = [
 test = [
     "pytest>=7.0.0"
 ]
+
+[project.scripts]
+camformer-validate = "experiments.compare_with_paper:main"
+camformer-sweep = "experiments.sensitivity_study:main"
