@@ -10,7 +10,8 @@ install-test:
 	$(PYTHON) -m pip install -e ".[test]"
 
 test:
-	$(PYTHON) -m unittest discover -s tests -v || $(PYTHON) -m unittest test_camformer.py test_sst.py -v
+	$(PYTHON) tests/test_camformer.py
+	$(PYTHON) tests/test_sst.py
 
 paper:
 	$(PYTHON) compare_with_paper.py

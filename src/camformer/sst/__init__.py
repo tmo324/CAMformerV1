@@ -12,7 +12,7 @@ from .simulation_runner import SimulationRunner
 from .energy_model import EnergyConfig, EnergyBreakdown, EnergyTracker, estimate_attention_energy
 
 # Re-export technology nodes for convenience
-from core.technology import (
+from camformer.core.technology import (
     TechnologyNode, TECH_28NM, TECH_16NM, TECH_7NM,
     DEFAULT_TECH, get_technology, print_technology_summary
 )

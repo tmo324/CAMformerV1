@@ -12,8 +12,8 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from core.simulation import Simulation
-from core.clock import TimeConverter, ClockFrequencies
+from camformer.core.simulation import Simulation
+from camformer.core.clock import TimeConverter, ClockFrequencies
 from .camformer_sst import CAMformerSST, CAMformerSSTConfig
 from .energy_model import EnergyBreakdown
 

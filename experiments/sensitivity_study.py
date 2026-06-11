@@ -14,9 +14,10 @@ import math
 import os
 import sys
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# Remove manual sys.path.insert now that we are using a proper package structure.
+# Ensure the package is installed via `pip install -e .`
 
-from core.paper_hardware import (
+from camformer.core.paper_hardware import (
     PaperHardwareModel, PaperConfig, PipelineMode, PAPER_MODULES, HardwareModule
 )
 

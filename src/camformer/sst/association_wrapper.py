@@ -12,12 +12,12 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from core.component import Component
-from core.event import Event, EventType
-from core.link import Link
-from core.statistics import CounterStatistic, AccumulatorStatistic
-from core.paper_hardware import PipelineMode
-from pipeline.association import AssociationStage, AssociationConfig
+from camformer.core.component import Component
+from camformer.core.event import Event, EventType
+from camformer.core.link import Link
+from camformer.core.statistics import CounterStatistic, AccumulatorStatistic
+from camformer.core.paper_hardware import PipelineMode
+from camformer.pipeline.association import AssociationStage, AssociationConfig
 from .energy_model import EnergyTracker, EnergyConfig
 from .power_model import PowerCyclesModel, MODULES
 

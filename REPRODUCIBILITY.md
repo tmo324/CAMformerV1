@@ -22,7 +22,7 @@ The script will output the stage-by-stage cycle breakdown and component-wise ene
 To reproduce the Top-$k$ sparsity and tile size sweep tables:
 
 ```bash
-python sensitivity_study.py
+python experiments/sensitivity_study.py
 ```
 
 **Expected Output:**

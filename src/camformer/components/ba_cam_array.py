@@ -15,9 +15,9 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from core.component import Component
-from core.event import Event, EventType
-from core.statistics import (
+from camformer.core.component import Component
+from camformer.core.event import Event, EventType
+from camformer.core.statistics import (
     CounterStatistic, AccumulatorStatistic, AverageStatistic
 )
 

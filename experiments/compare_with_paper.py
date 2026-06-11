@@ -13,13 +13,12 @@ import sys
 import os
 import numpy as np
 
-# Add parent directory to path
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# Rely on installed package (pip install -e .)
 
-from core.paper_hardware import (
+from camformer.core.paper_hardware import (
     PaperHardwareModel, PaperConfig, PipelineMode, validate_against_paper
 )
-from sst.camformer_sst import CAMformerSST, CAMformerSSTConfig
+from camformer.sst.camformer_sst import CAMformerSST, CAMformerSSTConfig
 
 
 def run_paper_hardware_model():

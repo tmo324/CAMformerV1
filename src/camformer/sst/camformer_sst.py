@@ -13,17 +13,17 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from core.component import Component
-from core.event import Event, EventType
-from core.link import Link
-from core.clock import Clock, ClockFrequencies, TimeConverter
-from core.statistics import CounterStatistic, AccumulatorStatistic
-from core.simulation import Simulation
-from core.paper_hardware import PaperHardwareModel, PaperConfig, PipelineMode
+from camformer.core.component import Component
+from camformer.core.event import Event, EventType
+from camformer.core.link import Link
+from camformer.core.clock import Clock, ClockFrequencies, TimeConverter
+from camformer.core.statistics import CounterStatistic, AccumulatorStatistic
+from camformer.core.simulation import Simulation
+from camformer.core.paper_hardware import PaperHardwareModel, PaperConfig, PipelineMode
 
-from pipeline.association import AssociationConfig
-from pipeline.selection import SelectionConfig
-from pipeline.contextualization import ContextualizationConfig
+from camformer.pipeline.association import AssociationConfig
+from camformer.pipeline.selection import SelectionConfig
+from camformer.pipeline.contextualization import ContextualizationConfig
 
 from .association_wrapper import AssociationWrapper
 from .selection_wrapper import SelectionWrapper

@@ -13,11 +13,11 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from core.component import Component
-from core.statistics import CounterStatistic, AccumulatorStatistic
-from components.bf16_mac import BF16MAC, BF16MACConfig
-from components.sram import SRAM, SRAMConfig
-from components.buffers import OutputBuffer, BufferConfig
+from camformer.core.component import Component
+from camformer.core.statistics import CounterStatistic, AccumulatorStatistic
+from camformer.components.bf16_mac import BF16MAC, BF16MACConfig
+from camformer.components.sram import SRAM, SRAMConfig
+from camformer.components.buffers import OutputBuffer, BufferConfig
 
 
 @dataclass

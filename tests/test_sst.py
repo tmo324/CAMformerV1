@@ -9,19 +9,18 @@ import sys
 import os
 import numpy as np
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-
-from sst import (
+# Rely on installed package
+from camformer.sst import (
     CAMformerSST, CAMformerSSTConfig,
     SimulationRunner,
     AssociationWrapper,
     SelectionWrapper,
     ContextualizationWrapper,
 )
-from core.simulation import Simulation
-from pipeline.association import AssociationConfig
-from pipeline.selection import SelectionConfig
-from pipeline.contextualization import ContextualizationConfig
+from camformer.core.simulation import Simulation
+from camformer.pipeline.association import AssociationConfig
+from camformer.pipeline.selection import SelectionConfig
+from camformer.pipeline.contextualization import ContextualizationConfig
 
 
 def test_association_wrapper():

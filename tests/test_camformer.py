@@ -9,10 +9,8 @@ import sys
 import os
 import numpy as np
 
-# Add parent to path
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-
-from pipeline import (
+# Rely on installed package
+from camformer.pipeline import (
     CAMformerPipeline, CAMformerConfig,
     CAMformerAttentionHead, AttentionHeadConfig,
     AssociationStage, AssociationConfig,
