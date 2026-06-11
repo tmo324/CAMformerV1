@@ -35,6 +35,8 @@ This repository contains the event-driven architectural simulator for **CAMforme
 CAMformer accelerates the multi-head attention mechanism by performing highly parallel associative searches in hardware, bypassing the need to fetch and compute full $Q \times K^T$ similarity matrices. This repository provides:
 - A cycle-accurate event-driven simulation pipeline (SST).
 - Analytical hardware models for area, power, and latency.
+- SystemVerilog (RTL) implementation of key microarchitecture components (`rtl/`).
+- Jupyter notebook plotters and raw synthesis/profiling data used to generate the paper's figures (`experiments/notebooks/` and `experiments/data/`).
 - Scripts to reproduce the key hardware validation and sensitivity studies presented in our work.
 
 ## Installation
