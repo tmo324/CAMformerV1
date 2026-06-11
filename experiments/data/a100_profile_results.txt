@@ -1,0 +1,284 @@
+Using GPU: NVIDIA A100-SXM4-80GB
+latency start
+power start
+power end
+latency end
+Model: gpt2-small-1bw
+Attention Latency (ms): 10.207155
+Dynamic Power:
+  - Watts: 205.697400
+  - milliWatts: 205697.400000
+Energy Consumption for Attention Layers:
+  - Joules: 2.099585
+  - milliJoules: 2099.585150
+  - nanoJoules: 2099585150.260916
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: gpt2-small-ptb
+Attention Latency (ms): 10.204086
+Dynamic Power:
+  - Watts: 215.158475
+  - milliWatts: 215158.475000
+Energy Consumption for Attention Layers:
+  - Joules: 2.195496
+  - milliJoules: 2195.495665
+  - nanoJoules: 2195495665.228138
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: gpt2-small-wikitext103
+Attention Latency (ms): 10.203226
+Dynamic Power:
+  - Watts: 214.811500
+  - milliWatts: 214811.500000
+Energy Consumption for Attention Layers:
+  - Joules: 2.191770
+  - milliJoules: 2191.770319
+  - nanoJoules: 2191770318.971908
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: gpt2-small-wikitext2
+Attention Latency (ms): 10.207944
+Dynamic Power:
+  - Watts: 213.875575
+  - milliWatts: 213875.575000
+Energy Consumption for Attention Layers:
+  - Joules: 2.183230
+  - milliJoules: 2183.229806
+  - nanoJoules: 2183229805.613248
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: gpt2-medium-1bw
+Attention Latency (ms): 32.263388
+Dynamic Power:
+  - Watts: 207.986300
+  - milliWatts: 207986.300000
+Energy Consumption for Attention Layers:
+  - Joules: 6.710343
+  - milliJoules: 6710.342761
+  - nanoJoules: 6710342761.425208
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: gpt2-medium-ptb
+Attention Latency (ms): 32.270231
+Dynamic Power:
+  - Watts: 205.513600
+  - milliWatts: 205513.600000
+Energy Consumption for Attention Layers:
+  - Joules: 6.631971
+  - milliJoules: 6631.971426
+  - nanoJoules: 6631971425.959773
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: gpt2-medium-wikitext103
+Attention Latency (ms): 32.268338
+Dynamic Power:
+  - Watts: 203.876600
+  - milliWatts: 203876.600000
+Energy Consumption for Attention Layers:
+  - Joules: 6.578759
+  - milliJoules: 6578.758993
+  - nanoJoules: 6578758993.015562
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: gpt2-medium-wikitext2
+Attention Latency (ms): 32.277170
+Dynamic Power:
+  - Watts: 201.884550
+  - milliWatts: 201884.550000
+Energy Consumption for Attention Layers:
+  - Joules: 6.516262
+  - milliJoules: 6516.261968
+  - nanoJoules: 6516261967.638395
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: bert-base-qqp
+Attention Latency (ms): 8.554910
+Dynamic Power:
+  - Watts: 205.393725
+  - milliWatts: 205393.725000
+Energy Consumption for Attention Layers:
+  - Joules: 1.757125
+  - milliJoules: 1757.124748
+  - nanoJoules: 1757124747.512664
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: bert-base-squad-v2
+Attention Latency (ms): 8.551436
+Dynamic Power:
+  - Watts: 208.158500
+  - milliWatts: 208158.500000
+Energy Consumption for Attention Layers:
+  - Joules: 1.780054
+  - milliJoules: 1780.054073
+  - nanoJoules: 1780054072.967848
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: bert-large-squad-v2
+Attention Latency (ms): 28.444796
+Dynamic Power:
+  - Watts: 202.592700
+  - milliWatts: 202592.700000
+Energy Consumption for Attention Layers:
+  - Joules: 5.762708
+  - milliJoules: 5762.708089
+  - nanoJoules: 5762708089.122338
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: bert-large-squad-v1
+Attention Latency (ms): 28.441368
+Dynamic Power:
+  - Watts: 201.452000
+  - milliWatts: 201452.000000
+Energy Consumption for Attention Layers:
+  - Joules: 5.729571
+  - milliJoules: 5729.570513
+  - nanoJoules: 5729570513.109555
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: bert-base-mnli-mm
+Attention Latency (ms): 8.556876
+Dynamic Power:
+  - Watts: 208.086325
+  - milliWatts: 208086.325000
+Energy Consumption for Attention Layers:
+  - Joules: 1.780569
+  - milliJoules: 1780.568885
+  - nanoJoules: 1780568884.515521
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: bert-base-mnli-m
+Attention Latency (ms): 8.553887
+Dynamic Power:
+  - Watts: 209.896050
+  - milliWatts: 209896.050000
+Energy Consumption for Attention Layers:
+  - Joules: 1.795427
+  - milliJoules: 1795.427045
+  - nanoJoules: 1795427044.879246
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: bert-base-mrpc
+Attention Latency (ms): 8.559284
+Dynamic Power:
+  - Watts: 211.405350
+  - milliWatts: 211405.350000
+Energy Consumption for Attention Layers:
+  - Joules: 1.809478
+  - milliJoules: 1809.478469
+  - nanoJoules: 1809478468.850762
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: bert-base-qnli
+Attention Latency (ms): 8.554082
+Dynamic Power:
+  - Watts: 204.719125
+  - milliWatts: 204719.125000
+Energy Consumption for Attention Layers:
+  - Joules: 1.751184
+  - milliJoules: 1751.184167
+  - nanoJoules: 1751184167.362957
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: bert-base-rte
+Attention Latency (ms): 8.552642
+Dynamic Power:
+  - Watts: 212.748825
+  - milliWatts: 212748.825000
+Energy Consumption for Attention Layers:
+  - Joules: 1.819564
+  - milliJoules: 1819.564446
+  - nanoJoules: 1819564445.523625
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: bert-base-sst2
+Attention Latency (ms): 8.552762
+Dynamic Power:
+  - Watts: 215.736325
+  - milliWatts: 215736.325000
+Energy Consumption for Attention Layers:
+  - Joules: 1.845141
+  - milliJoules: 1845.141344
+  - nanoJoules: 1845141344.182379
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: bert-base-cola
+Attention Latency (ms): 8.552747
+Dynamic Power:
+  - Watts: 216.441325
+  - milliWatts: 216441.325000
+Energy Consumption for Attention Layers:
+  - Joules: 1.851168
+  - milliJoules: 1851.167814
+  - nanoJoules: 1851167813.514548
+--------------------------------------------------
+latency start
+power start
+power end
+latency end
+Model: google/vit-base-patch16-224
+Attention Latency (ms): 3.651919
+Dynamic Power:
+  - Watts: 62.300750
+  - milliWatts: 62300.750000
+Energy Consumption for Attention Layers:
+  - Joules: 0.227517
+  - milliJoules: 227.517275
+  - nanoJoules: 227517274.705302
+--------------------------------------------------
+latency start
+power start
+power end
