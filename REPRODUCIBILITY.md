@@ -2,12 +2,20 @@
 
 This document provides step-by-step instructions to reproduce the key hardware validation and sensitivity studies presented in the CAMformer paper (arXiv:2511.19740v1).
 
+## 0. Prerequisites
+
+Install the package first so the scripts can import `camformer`:
+
+```bash
+make install        # or: pip install -e .
+```
+
 ## 1. Hardware Model Validation
 
 To validate the cycles, energy, area, and throughput metrics against the reference hardware model:
 
 ```bash
-python compare_with_paper.py
+python experiments/compare_with_paper.py
 ```
 
 **Expected Output:**

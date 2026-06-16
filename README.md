@@ -18,7 +18,7 @@
   <a href="https://github.com/tmo324/CAMformerV1/actions/workflows/secret-scan.yml">
     <img src="https://github.com/tmo324/CAMformerV1/actions/workflows/secret-scan.yml/badge.svg" alt="Secret scan">
   </a>
-  <img src="https://img.shields.io/badge/python-3.8--3.12-3776AB?logo=python&logoColor=white" alt="Python Supported">
+  <img src="https://img.shields.io/badge/python-3.10--3.12-3776AB?logo=python&logoColor=white" alt="Python Supported">
   <a href="CITATION.cff">
     <img src="https://img.shields.io/badge/citation-CFF-4B8BBE" alt="Citation CFF">
   </a>
