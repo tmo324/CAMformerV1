@@ -4,8 +4,11 @@ CAMformer Paper Hardware Parameters
 Hardware module parameters matching Ben's reference implementation
 for reproducing paper results (arXiv:2511.19740v1).
 
-All values are scaled to 45nm technology node.
-Energy model: E = P × cycles (mW × cycles = nJ at 1 GHz)
+PPA provenance: digital blocks are synthesized with Synopsys Design Compiler at
+TSMC 65 nm, then normalized to 45 nm (per the scaling methodology cited as [36]
+in the paper). A few SRAM/ADC macros are sourced at ~40 nm and used unscaled,
+which sits within the ±15% scaling uncertainty the paper reports for 45 nm.
+Energy model: E = P × cycles. At 1 GHz, mW × cycles = pJ; divide by 1000 -> nJ.
 """
 
 from dataclasses import dataclass

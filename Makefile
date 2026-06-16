@@ -18,8 +18,8 @@ check:
 	$(MAKE) test
 
 paper:
-	$(PYTHON) compare_with_paper.py
-	$(PYTHON) sensitivity_study.py
+	$(PYTHON) experiments/compare_with_paper.py
+	$(PYTHON) experiments/sensitivity_study.py
 
 clean:
 	rm -rf build/ dist/ *.egg-info/ __pycache__/ .pytest_cache/

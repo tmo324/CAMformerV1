@@ -16,7 +16,7 @@ import numpy as np
 # Rely on installed package (pip install -e .)
 
 from camformer.core.paper_hardware import (
-    PaperHardwareModel, PaperConfig, PipelineMode, validate_against_paper
+    PaperHardwareModel, PaperConfig, PipelineMode
 )
 from camformer.sst.camformer_sst import CAMformerSST, CAMformerSSTConfig
 

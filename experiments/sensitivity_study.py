@@ -245,6 +245,9 @@ def generate_svg(topk_rows, tile_rows, output_dir):
     try:
         import matplotlib
         matplotlib.use("Agg")
+        # Deterministic SVG: fixed salt for clip-path IDs so the committed
+        # figure does not churn on every run.
+        matplotlib.rcParams["svg.hashsalt"] = "camformer"
         import matplotlib.pyplot as plt
     except ImportError:
         print("matplotlib not available — skipping SVG generation.")
@@ -300,7 +303,8 @@ def generate_svg(topk_rows, tile_rows, output_dir):
 
     fig.tight_layout()
     path = os.path.join(output_dir, "sensitivity_study.svg")
-    fig.savefig(path, format="svg", bbox_inches="tight")
+    # metadata Date=None strips the embedded timestamp (another churn source).
+    fig.savefig(path, format="svg", bbox_inches="tight", metadata={"Date": None})
     plt.close(fig)
     print(f"Saved: {path}")
 

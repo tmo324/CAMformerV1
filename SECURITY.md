@@ -9,7 +9,7 @@ Currently, only the `main` branch is actively supported with security updates.
 We take the security of our project seriously. If you discover a security vulnerability within CAMformerV1, please **do not open a public issue**.
 
 Instead, please responsibly disclose it by emailing:
-**[tergel.m0324@gmail.com]** (or your preferred academic/security contact email).
+**tergel.m0324@gmail.com**
 
 Please include the following information in your report:
 - A description of the vulnerability and its impact.
