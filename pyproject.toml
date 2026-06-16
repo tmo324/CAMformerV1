@@ -28,6 +28,15 @@ dependencies = [
 test = [
     "pytest>=7.0.0"
 ]
+# Dependencies for regenerating the paper figures (Fig 6/8/10) from the
+# plotter notebooks via `make figures`. Kept separate so the core simulator
+# install stays lean (numpy + matplotlib only). The notebooks are executed by
+# experiments/run_notebook.py, so no Jupyter kernel is required — only the
+# data-loading deps the notebook code itself imports.
+figures = [
+    "pandas>=1.3",
+    "openpyxl>=3.0"
+]
 
 [project.scripts]
 camformer-validate = "experiments.compare_with_paper:main"

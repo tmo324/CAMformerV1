@@ -40,8 +40,30 @@ The script will:
 
 ## 3. Using Make
 
-If you have installed the project via `make install`, you can generate all paper results with a single command:
+If you have installed the project via `make install`, you can generate the
+architectural tables (Tables III/IV/VI, headline metrics) with a single command:
 
 ```bash
 make paper
 ```
+
+## 4. Paper Figures (Fig 6/8/10)
+
+The figure plotters live in `experiments/notebooks/` and need extra dependencies
+(pandas, openpyxl, a Jupyter kernel). Install them and regenerate the figures with:
+
+```bash
+make install-figures   # pandas, openpyxl, nbconvert, ipykernel
+make figures           # executes the plotter notebooks headless
+```
+
+This regenerates, into `experiments/notebooks/`:
+- `bimm_energy.png` — Fig 6 (per-operation energy vs. batch size)
+- `area_energy_breakdown.png` — Fig 8 (area + energy breakdown)
+- `pareto_front.png` — Fig 10 (Pareto vs. industry baselines)
+
+**Scope note.** Fig 10's GPU baselines (A100 / L40 / TitanXP) are *committed
+profiling measurements* under `benchmarks/`, not regenerated from hardware.
+Two paper results are **not** reproducible from this repository and live in
+separate pipelines: the algorithmic accuracy of Table V (ImageNet/ViT + language)
+and the analog circuit characterization of Table II / Fig 3 (HSPICE).
