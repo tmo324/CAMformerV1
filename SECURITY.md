@@ -1,19 +1,17 @@
 # Security Policy
 
-## Supported Versions
+## Supported Version
 
-Currently, only the `main` branch is actively supported with security updates.
+The latest release on the `main` branch receives security updates.
 
 ## Reporting a Vulnerability
 
-We take the security of our project seriously. If you discover a security vulnerability within CAMformerV1, please **do not open a public issue**.
+Please do not open a public issue for a suspected vulnerability.
 
-Instead, please responsibly disclose it by emailing:
-**tergel.m0324@gmail.com**
+Use [GitHub private vulnerability reporting](https://github.com/tmo324/CAMformerV1/security/advisories/new) when available. If that form is unavailable, email `tergel.m0324@gmail.com` with:
 
-Please include the following information in your report:
-- A description of the vulnerability and its impact.
-- Steps to reproduce the vulnerability.
-- Any suggested mitigation or patch.
+- a description of the issue and its impact
+- minimal steps to reproduce it
+- any suggested mitigation
 
-We will acknowledge receipt of your vulnerability report and work with you to resolve the issue promptly.
+Please avoid including sensitive data beyond what is necessary to reproduce the issue.

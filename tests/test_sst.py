@@ -59,8 +59,10 @@ def test_association_wrapper():
     print(f"  Events received: {wrapper.get_statistic('events_received').get_value()}")
     print(f"  Total latency: {wrapper.get_statistic('total_latency').get_value()} cycles")
 
+    assert results[0] is similarity
+    assert np.isfinite(similarity).all()
+
     print("Association wrapper test PASSED")
-    return True
 
 
 def test_selection_wrapper():
@@ -96,8 +98,11 @@ def test_selection_wrapper():
     print(f"  Attention weight sums: [{weight_sums.min():.3f}, {weight_sums.max():.3f}]")
     print(f"  Rows processed: {wrapper.get_statistic('rows_processed').get_value()}")
 
+    assert results[0] is result['attention_weights']
+    assert np.allclose(weight_sums, 1.0, atol=1e-6)
+    assert wrapper.get_statistic('rows_processed').get_value() == N
+
     print("Selection wrapper test PASSED")
-    return True
 
 
 def test_contextualization_wrapper():
@@ -133,12 +138,14 @@ def test_contextualization_wrapper():
     output = wrapper.get_results()
     assert output is not None
     assert output.shape == (N, d), f"Wrong shape: {output.shape}"
+    assert results[0] is output
+    assert np.isfinite(output).all()
+    assert wrapper.get_statistic('outputs_computed').get_value() == N
 
     print(f"  Outputs computed: {wrapper.get_statistic('outputs_computed').get_value()}")
     print(f"  Total latency: {wrapper.get_statistic('total_latency').get_value()} cycles")
 
     print("Contextualization wrapper test PASSED")
-    return True
 
 
 def test_camformer_sst_pipeline():
@@ -176,9 +183,11 @@ def test_camformer_sst_pipeline():
         print(f"    {stage}: {stage_stats}")
 
     assert output.shape == (N, d)
+    assert np.isfinite(output).all()
+    assert stats['selection']['rows'] == N
+    assert stats['contextualization']['outputs'] == N
 
     print("CAMformer SST pipeline test PASSED")
-    return True
 
 
 def test_simulation_runner():
@@ -212,8 +221,13 @@ def test_simulation_runner():
     print(f"    Compute speedup: {comparison['speedup']['compute']:.2f}x")
     print(f"    Memory reduction: {comparison['speedup']['memory']:.2f}x")
 
+    assert result['output_shape'] == (N, d)
+    assert np.isfinite(result['output']).all()
+    assert result['latency_cycles'] > 0
+    assert result['energy']['total_nj'] > 0
+    assert comparison['speedup']['compute'] > 1.0
+
     print("Simulation runner test PASSED")
-    return True
 
 
 def test_sequence_sweep():
@@ -247,8 +261,11 @@ def test_sequence_sweep():
         print(f"    N: {prev['config']['seq_length']} -> {curr['config']['seq_length']}: "
               f"cycles {cycle_ratio:.2f}x (ideal O(N): {N_ratio:.1f}x)")
 
+    assert [result['config']['seq_length'] for result in results] == seq_lengths
+    assert all(result['latency_cycles'] > 0 for result in results)
+    assert all(result['energy']['total_nj'] > 0 for result in results)
+
     print("Sequence sweep test PASSED")
-    return True
 
 
 def run_all_tests():
@@ -269,8 +286,8 @@ def run_all_tests():
     results = []
     for name, test_fn in tests:
         try:
-            result = test_fn()
-            results.append((name, result))
+            test_fn()
+            results.append((name, True))
         except Exception as e:
             print(f"\n{name} FAILED: {e}")
             import traceback

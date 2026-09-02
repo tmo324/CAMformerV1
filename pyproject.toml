@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=77.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,37 +7,41 @@ name = "camformer"
 version = "1.0.0"
 authors = [
   { name="Tergel Molom-Ochir" },
+  { name="Benjamin F. Morris" },
 ]
 description = "Event-driven architectural simulator for CAMformer: Binary Associative Memory Is All You Need."
 readme = "README.md"
 requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 dependencies = [
     "numpy>=1.21.0",
-    "matplotlib>=3.3.0"
+    "matplotlib==3.10.0"
 ]
 
 [project.optional-dependencies]
 test = [
     "pytest>=7.0.0"
 ]
-# Dependencies for regenerating the paper figures (Fig 6/8/10) from the
-# plotter notebooks via `make figures`. Kept separate so the core simulator
-# install stays lean (numpy + matplotlib only). The notebooks are executed by
-# experiments/run_notebook.py, so no Jupyter kernel is required — only the
-# data-loading deps the notebook code itself imports.
-figures = [
-    "pandas>=1.3",
-    "openpyxl>=3.0"
-]
 
 [project.scripts]
-camformer-validate = "experiments.compare_with_paper:main"
-camformer-sweep = "experiments.sensitivity_study:main"
+camformer-validate = "camformer.cli.validate:main"
+camformer-sweep = "camformer.cli.sweep:main"
+
+[project.urls]
+Homepage = "https://github.com/tmo324/CAMformerV1"
+Paper = "https://doi.org/10.1109/TCSI.2026.3692014"
+Issues = "https://github.com/tmo324/CAMformerV1/issues"
+Documentation = "https://github.com/tmo324/CAMformerV1/blob/main/REPRODUCIBILITY.md"
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore::pyparsing.PyparsingDeprecationWarning",
+]
