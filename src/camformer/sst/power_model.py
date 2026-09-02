@@ -1,7 +1,7 @@
 """
 Power × Cycles Energy Model
 
-Energy model matching Ben's implementation:
+Energy model matching the original research implementation:
 E = P (mW) × cycles = pJ (at 1 GHz)
 
 This model uses hardware module specifications from the paper

@@ -1,37 +1,42 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+message: "If you use this software, please cite the CAMformer paper below."
+title: "CAMformerV1 research artifacts"
+type: software
 authors:
-- family-names: "Molom-Ochir"
-  given-names: "Tergel"
-title: "CAMformer: Binary Associative Memory Is All You Need"
-version: 1.0.0
-date-released: 2026-03-01
-url: "https://github.com/tmo324/CAMformerV1"
-preferred-citation:
-  type: article
-  authors:
   - family-names: "Molom-Ochir"
     given-names: "Tergel"
   - family-names: "Morris"
     given-names: "Benjamin F."
-  - family-names: "Horton"
-    given-names: "Mark"
-  - family-names: "Wei"
-    given-names: "Chiyue"
-  - family-names: "Guo"
-    given-names: "Cong"
-  - family-names: "Taylor"
-    given-names: "Brady"
-  - family-names: "Liu"
-    given-names: "Peter"
-  - family-names: "Wang"
-    given-names: "Shan X."
-  - family-names: "Fan"
-    given-names: "Deliang"
-  - family-names: "Li"
-    given-names: "Hai"
-  - family-names: "Chen"
-    given-names: "Yiran"
+version: 1.0.0
+date-released: 2026-09-02
+repository-code: "https://github.com/tmo324/CAMformerV1"
+url: "https://github.com/tmo324/CAMformerV1"
+license: MIT
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Molom-Ochir"
+      given-names: "Tergel"
+    - family-names: "Morris"
+      given-names: "Benjamin F."
+    - family-names: "Horton"
+      given-names: "Mark"
+    - family-names: "Wei"
+      given-names: "Chiyue"
+    - family-names: "Guo"
+      given-names: "Cong"
+    - family-names: "Taylor"
+      given-names: "Brady"
+    - family-names: "Liu"
+      given-names: "Peter"
+    - family-names: "Wang"
+      given-names: "Shan X."
+    - family-names: "Fan"
+      given-names: "Deliang"
+    - family-names: "Li"
+      given-names: "Hai"
+    - family-names: "Chen"
+      given-names: "Yiran"
   title: "CAMformer: Binary Associative Memory Is All You Need"
   journal: "IEEE Transactions on Circuits and Systems I: Regular Papers"
   year: 2026

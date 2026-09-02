@@ -35,7 +35,7 @@ from .energy_model import EnergyConfig, EnergyBreakdown, EnergyTracker
 class CAMformerSSTConfig:
     """Configuration for CAMformer SST pipeline
 
-    Default values match the paper (arXiv:2511.19740v1):
+    Default values match the published CAMformer configuration:
     - seq_length: 1024 (BERT-Large sequence length)
     - head_dim: 64
     - num_heads: 16 (BERT-Large attention heads)
@@ -54,7 +54,7 @@ class CAMformerSSTConfig:
     # Pipeline mode for paper-accurate metrics
     pipeline_mode: PipelineMode = PipelineMode.REALISTIC
 
-    # Use paper hardware model for metrics (matches Ben's implementation)
+    # Use the normalized paper hardware model for reported metrics.
     use_paper_model: bool = True
 
     # Link latencies (in cycles)
@@ -298,22 +298,36 @@ class CAMformerSST(Component):
         Returns:
             Tuple of (outputs, stats)
         """
-        # Stage 1: Association - load keys and process queries
-        self._association.load_keys(K)
-        self._association.process_queries(Q)
-        similarity_matrix = self._association.get_results()
-
-        # Stage 2: Selection - process similarity matrix
-        self._selection.process_similarity(similarity_matrix)
-        selection_results = self._selection.get_results()
-
-        # Stage 3: Contextualization - load values and compute outputs
-        self._contextualization.load_values(V)
-        self._contextualization.process_attention(
-            selection_results['attention_weights'],
-            selection_results['top_indices']
+        # Temporarily disable queued scheduling. Link.send() then delivers each
+        # completion event immediately, so one association call runs the full
+        # Association -> Selection -> Contextualization chain exactly once.
+        wrappers = (
+            self._association,
+            self._selection,
+            self._contextualization,
         )
-        outputs = self._contextualization.get_results()
+        links = (self._link_assoc_select, self._link_select_context)
+        wrapper_simulations = [wrapper._sim for wrapper in wrappers]
+        link_simulations = [link._simulation for link in links]
+
+        try:
+            for wrapper in wrappers:
+                wrapper.set_simulation(None)
+            for link in links:
+                link._simulation = None
+
+            self._contextualization.load_values(V)
+            self._association.load_keys(K)
+            self._association.process_queries(Q)
+            outputs = self._contextualization.get_results()
+        finally:
+            for wrapper, simulation in zip(wrappers, wrapper_simulations):
+                wrapper.set_simulation(simulation)
+            for link, simulation in zip(links, link_simulations):
+                link._simulation = simulation
+
+        if outputs is None:
+            raise RuntimeError("Synchronous CAMformer pipeline did not produce output")
 
         # Update statistics
         self.get_statistic("attention_ops").add_data(1)

@@ -1,49 +1,23 @@
-# Contributor Covenant Code of Conduct
+# Code of Conduct
 
-## Our Pledge
+CAMformerV1 adopts the [Contributor Covenant, version 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
 
-We as members, contributors, and leaders pledge to make participation in our
-community a harassment-free experience for everyone, regardless of age, body
-size, visible or invisible disability, ethnicity, sex characteristics, gender
-identity and expression, level of experience, education, socio-economic status,
-nationality, personal appearance, race, religion, or sexual identity
-and orientation.
+## Standard
 
-We pledge to act and interact in ways that contribute to an open, welcoming,
-diverse, inclusive, and healthy community.
-
-## Our Standards
-
-Examples of behavior that contributes to a positive environment for our
-community include:
-
-* Demonstrating empathy and kindness toward other people
-* Being respectful of differing opinions, viewpoints, and experiences
-* Giving and gracefully accepting constructive feedback
-* Accepting responsibility and apologizing to those affected by our mistakes,
-  and learning from the experience
-* Focusing on what is best not just for us as individuals, but for the
-  overall community
-
-Examples of unacceptable behavior include:
-
-* The use of sexualized language or imagery, and sexual attention or
-  advances of any kind
-* Trolling, insulting or derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or email
-  address, without their explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
-  professional setting
-
-## Enforcement Responsibilities
-
-Community leaders are responsible for clarifying and enforcing our standards of
-acceptable behavior and will take appropriate and fair corrective action in
-response to any behavior that they deem inappropriate, threatening, offensive,
-or harmful.
+Contributors and maintainers are expected to communicate respectfully, welcome constructive disagreement, accept feedback gracefully, and help maintain a professional research community. Harassment, personal attacks, publication of private information, and other conduct that makes participation unsafe are not acceptable.
 
 ## Scope
 
-This Code of Conduct applies within all community spaces, and also applies when
-an individual is officially representing the community in public spaces.
+This standard applies to repository issues, pull requests, reviews, discussions, and other official CAMformerV1 community spaces. It also applies when someone officially represents the project in public.
+
+## Reporting
+
+Report conduct concerns privately to `tergel.m0324@gmail.com`. Reports will be reviewed fairly, and the privacy and safety of reporters will be respected.
+
+## Enforcement
+
+Project maintainers may remove, edit, or reject comments, commits, issues, pull requests, and other contributions that do not follow this standard. Responses will be proportionate to the conduct and may include a private correction, warning, temporary restriction, or permanent restriction from project spaces.
+
+## Attribution
+
+This Code of Conduct is based on the Contributor Covenant, version 2.1, which is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Its enforcement guidance was inspired by Mozilla's code of conduct enforcement ladder.

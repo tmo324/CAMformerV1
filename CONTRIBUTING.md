@@ -1,31 +1,40 @@
 # Contributing to CAMformerV1
 
-Thank you for your interest in contributing to CAMformerV1! We welcome community contributions, whether they are bug fixes, feature enhancements, or documentation improvements.
-
-## How to Contribute
-
-1. **Fork the Repository:** Create a fork of the repository on GitHub.
-2. **Create a Branch:** Create a feature branch (`git checkout -b feature/your-feature-name`).
-3. **Make Changes:** Implement your feature or bug fix.
-4. **Test:** Ensure all tests pass by running `make test`. If you add new functionality, please include tests.
-5. **Commit:** Commit your changes using descriptive commit messages (`git commit -m "Add some feature"`).
-6. **Push:** Push to the branch (`git push origin feature/your-feature-name`).
-7. **Submit a Pull Request:** Open a Pull Request against the `main` branch.
+Contributions to the simulator, reproducibility scripts, documentation, tests, and reference RTL are welcome.
 
 ## Development Setup
-
-To set up your local environment for development:
 
 ```bash
 git clone https://github.com/tmo324/CAMformerV1.git
 cd CAMformerV1
+python3 -m venv .venv
+source .venv/bin/activate
 make install-test
 ```
 
-## Pull Request Guidelines
+## Before Opening a Pull Request
 
-- Ensure your code follows the existing style and conventions.
-- Keep pull requests focused on a single logical change.
-- Update documentation as necessary.
+Run the Python checks and paper reproduction path:
 
-By contributing to this project, you agree to abide by our Code of Conduct and license your contributions under the MIT License.
+```bash
+make check
+make paper
+```
+
+If the change affects RTL and Icarus Verilog plus Verilator are installed, also run:
+
+```bash
+make rtl
+```
+
+Keep pull requests focused. Add a regression test for behavior changes, update provenance when a hardware or comparison constant changes, and regenerate committed figures when their inputs or plotters change.
+
+## Reproducibility Expectations
+
+- Do not add a hardware constant without its source, node, units, and transformation.
+- Do not present unsupported or lint-only RTL as behaviorally verified.
+- Keep figure generation headless and script-based.
+- Preserve the published default configuration unless a change is clearly marked as a new experiment.
+- Describe any expected numeric or rendering difference in the pull request.
+
+By contributing, you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md) and license your contribution under the [MIT License](LICENSE).

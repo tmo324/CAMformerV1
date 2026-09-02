@@ -53,8 +53,13 @@ def test_association_stage():
     stats = stage.get_stage_stats()
     print(f"Stage area: {stats['area_mm2']:.4f} mm²")
 
+    assert hamming.shape == (N, N)
+    assert similarity.shape == (N, N)
+    assert key_latency > 0 and latency > 0
+    assert np.all((similarity >= 0.0) & (similarity <= 1.0))
+    assert stats['area_mm2'] > 0
+
     print("Association stage test PASSED")
-    return True
 
 
 def test_selection_stage():
@@ -88,10 +93,13 @@ def test_selection_stage():
     print(f"Attention weight sums (should be ~1): [{weight_sums.min():.3f}, {weight_sums.max():.3f}]")
 
     # Verify indices are valid
+    assert values.shape == (N, 8)
+    assert indices.shape == (N, 8)
+    assert weights.shape == (N, 8)
+    assert np.allclose(weight_sums, 1.0, atol=1e-6)
     assert indices.min() >= 0 and indices.max() < N, "Invalid indices"
 
     print("Selection stage test PASSED")
-    return True
 
 
 def test_contextualization_stage():
@@ -131,7 +139,6 @@ def test_contextualization_stage():
     assert not np.isnan(outputs).any(), "NaN in outputs"
 
     print("Contextualization stage test PASSED")
-    return True
 
 
 def test_full_pipeline():
@@ -181,8 +188,13 @@ def test_full_pipeline():
     pipe_stats = pipeline.get_pipeline_stats()
     print(f"\nPipeline area: {pipe_stats['area']['total_mm2']:.4f} mm²")
 
+    assert output.shape == (h, N, d)
+    assert np.isfinite(output).all()
+    assert stats['latency']['total'] > 0
+    assert comparison['speedup']['compute'] > 1.0
+    assert pipe_stats['area']['total_mm2'] > 0
+
     print("Full pipeline test PASSED")
-    return True
 
 
 def test_attention_head():
@@ -219,8 +231,12 @@ def test_attention_head():
     head_stats = head.get_head_stats()
     print(f"Head area: {head_stats['area_mm2']:.4f} mm²")
 
+    assert output.shape == (h, N, d)
+    assert np.isfinite(output).all()
+    assert stats['latency']['total'] > 0
+    assert head_stats['area_mm2'] > 0
+
     print("Attention head test PASSED")
-    return True
 
 
 def test_scaling():
@@ -235,6 +251,8 @@ def test_scaling():
 
     print(f"{'Seq Len':<10} {'Latency':<15} {'Dense Compute':<15} {'CAM Compute':<15} {'Speedup':<10}")
     print("-" * 65)
+
+    latencies = []
 
     for N in seq_lengths:
         config = CAMformerConfig(
@@ -256,13 +274,19 @@ def test_scaling():
 
         comparison = pipeline.compare_with_dense(N, head_dim)
 
+        assert output.shape == (N, head_dim)
+        assert np.isfinite(output).all()
+        assert comparison['speedup']['compute'] > 1.0
+        latencies.append(stats['latency']['total'])
+
         print(f"{N:<10} {stats['latency']['total']:<15} "
               f"{comparison['dense']['compute']:<15} "
               f"{comparison['camformer']['compute']:<15} "
               f"{comparison['speedup']['compute']:.2f}x")
 
+    assert latencies == sorted(latencies)
+    assert len(set(latencies)) == len(latencies)
     print("\nScaling test PASSED")
-    return True
 
 
 def run_all_tests():
@@ -283,8 +307,8 @@ def run_all_tests():
     results = []
     for name, test_fn in tests:
         try:
-            result = test_fn()
-            results.append((name, result))
+            test_fn()
+            results.append((name, True))
         except Exception as e:
             print(f"\n{name} FAILED: {e}")
             import traceback

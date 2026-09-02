@@ -1,0 +1,15 @@
+rtl/a1_q_buffer.sv
+rtl/a2_ML_REG.sv
+rtl/a3_input_buf.sv
+rtl/a4_9bit_adc.sv
+rtl/a5_x8.sv
+rtl/a6_sub32.sv
+rtl/a7_accum_array.sv
+rtl/a9_convert.sv
+rtl/a11_softmax.sv
+rtl/a13_denseMM.sv
+rtl/a13_fp32accum.sv
+rtl/a14_output_buffer.sv
+rtl/a15_indices_buffer.sv
+rtl/a16_address_controller.sv
+rtl/a17_out_buffer.sv
