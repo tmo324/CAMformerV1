@@ -1,4 +1,7 @@
 *
 !.gitignore
+!figures/
+!figures/*.png
+!figures/*.svg
 !golden/
 !golden/.gitkeep

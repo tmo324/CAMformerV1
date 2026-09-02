@@ -1,10 +1,8 @@
 SHELL := /bin/bash
 PYTHON ?= python3
+export MPLCONFIGDIR ?= $(CURDIR)/.cache/matplotlib
 
-NB_DIR := experiments/notebooks
-FIG_NB := Simulate.ipynb SensitivityStudyBACAM.ipynb
-
-.PHONY: install install-test install-figures test check paper figures clean
+.PHONY: install install-test test check validate sensitivity figures paper rtl release clean
 
 install:
 	$(PYTHON) -m pip install -e .
@@ -12,31 +10,31 @@ install:
 install-test:
 	$(PYTHON) -m pip install -e ".[test]"
 
-install-figures:
-	$(PYTHON) -m pip install -e ".[figures]"
-
 test:
-	$(PYTHON) tests/test_camformer.py
-	$(PYTHON) tests/test_sst.py
+	$(PYTHON) -m pytest -q
 
 check:
 	$(PYTHON) -m compileall -q src tests experiments
 	$(MAKE) test
 
-paper:
-	$(PYTHON) experiments/compare_with_paper.py
-	$(PYTHON) experiments/sensitivity_study.py
+validate:
+	$(PYTHON) -m camformer.cli.validate
 
-# Regenerate the paper figures (Fig 6/8/10) by executing the plotter notebooks
-# headless (see experiments/run_notebook.py — no Jupyter kernel needed).
-# Requires `make install-figures` first. The figures (pareto_front.png,
-# area_energy_breakdown.png, bimm_energy.png) are written into $(NB_DIR)/ as a
-# side effect of the notebooks' savefig calls; the .ipynb files are not modified.
+sensitivity:
+	$(PYTHON) -m camformer.cli.sweep --output-dir results/figures
+
+# Regenerate the three plotted paper figures without a notebook or display.
 figures:
-	$(foreach nb,$(FIG_NB),$(PYTHON) experiments/run_notebook.py $(NB_DIR)/$(nb) &&) true
-	@echo "Regenerated in $(NB_DIR)/: pareto_front.png, area_energy_breakdown.png, bimm_energy.png"
+	$(PYTHON) -m experiments.figures.generate_all
+
+paper: validate sensitivity figures
+
+rtl:
+	bash rtl/tests/run_checks.sh
+
+release: check paper rtl
 
 clean:
-	rm -rf build/ dist/ *.egg-info/ __pycache__/ .pytest_cache/
+	rm -rf build/ dist/ src/*.egg-info/ *.egg-info/ __pycache__/ .pytest_cache/ .cache/
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 	find . -type f -name "*.pyc" -delete

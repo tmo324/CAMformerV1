@@ -212,7 +212,7 @@ TECH_16NM = TechnologyNode(
 )
 
 
-# 45nm CMOS - Paper baseline (from Ben's scaled modules.csv)
+# 45nm CMOS paper baseline from the normalized module table.
 # This is the technology node used in the CAMformer paper
 TECH_45NM = TechnologyNode(
     name="45nm CMOS (Paper)",
