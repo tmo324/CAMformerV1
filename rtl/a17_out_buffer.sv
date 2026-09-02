@@ -12,7 +12,8 @@ module a17_out_buffer (
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             for (int i = 0; i < 1024; i++) begin
-                mem[i] <= '0;
+                // Blocking reset assignments are supported by Verilator 5.020.
+                mem[i] = '0;
             end
         end
         else if (wr_en) begin
