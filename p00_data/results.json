@@ -1,0 +1,248 @@
+{
+  "revision": "33279940d3c101c3f9fefd572e542191bbb2bd7f",
+  "generated": "2026-09-25T18:20:55.228066+00:00",
+  "baseline": {
+    "cycles": {
+      "total": 721,
+      "association": 327,
+      "normalization": 134,
+      "contextualization": 260,
+      "max_stage": 327
+    },
+    "energy_nj": {
+      "onchip": 35.834769126925295,
+      "dram": 19.087360005119994,
+      "total": 54.922129132045285
+    },
+    "power_mw": {
+      "onchip": 109.58644992943516,
+      "dram": 58.37113151412842,
+      "total": 167.95758144356358
+    },
+    "area_mm2": 0.2584135446784,
+    "throughput": {
+      "single_core_per_ms": 191.131498470948,
+      "multi_core_per_ms": 3058.103975535168
+    },
+    "efficiency": {
+      "queries_per_mj": 9103.798558098255
+    },
+    "energy_breakdown": {
+      "Query Buffer": 0.05222608695652174,
+      "Key SRAM": 7.270400000000047,
+      "BA-CAM 16X64": 4.207304347826092,
+      "6b ADCs": 1.945599999999999,
+      "Fixed Scalers": 0.05022052173913049,
+      "Top2": 0.7787102608695657,
+      "Ptop Reg": 0.1008939130434782,
+      "Top32": 0.9373886608382608,
+      "SoftMax LUT": 0.045376000000000014,
+      "SoftMax Div.": 0.006824639999999999,
+      "SoftMax Acc.": 0.03574539130434782,
+      "Output Buff": 0.14925913043478276,
+      "Value SRAM": 11.104000000000065,
+      "BF16 MACs": 9.150820173913003,
+      "DRAM": 19.087360005119994
+    }
+  },
+  "topk": [
+    {
+      "param": 8,
+      "throughput": 191.131498470948,
+      "efficiency": 12130.413552955266,
+      "area": 0.2584135446784,
+      "recall": 99.86381106371492
+    },
+    {
+      "param": 16,
+      "throughput": 191.131498470948,
+      "efficiency": 10920.245491721029,
+      "area": 0.2584135446784,
+      "recall": 99.35277324175487
+    },
+    {
+      "param": 24,
+      "throughput": 191.131498470948,
+      "efficiency": 9929.634085329144,
+      "area": 0.2584135446784,
+      "recall": 98.5172676714547
+    },
+    {
+      "param": 32,
+      "throughput": 191.131498470948,
+      "efficiency": 9103.798558098255,
+      "area": 0.2584135446784,
+      "recall": 97.4081799605029
+    }
+  ],
+  "tile": [
+    {
+      "param": 4,
+      "throughput": 120.42389210019267,
+      "efficiency": 4197.936581573999,
+      "area": 0.2077372182784,
+      "recall": 99.91231113351516
+    },
+    {
+      "param": 8,
+      "throughput": 159.846547314578,
+      "efficiency": 6624.6806078594955,
+      "area": 0.2246293270784,
+      "recall": 99.42011870764141
+    },
+    {
+      "param": 16,
+      "throughput": 191.131498470948,
+      "efficiency": 9103.798558098255,
+      "area": 0.2584135446784,
+      "recall": 97.4081799605029
+    },
+    {
+      "param": 32,
+      "throughput": 211.864406779661,
+      "efficiency": 10599.978294038692,
+      "area": 0.3259819798784,
+      "recall": 90.76706753175449
+    }
+  ],
+  "bimm": {
+    "matrix_dim": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256
+    ],
+    "energy_per_op_pj": [
+      0.123046875,
+      0.073828125,
+      0.04921875,
+      0.0369140625,
+      0.03076171875,
+      0.027685546874999998,
+      0.0261474609375,
+      0.02537841796875,
+      0.024993896484375
+    ],
+    "program_and_search_pj": 0.123046875,
+    "search_only_pj": 0.024609375
+  },
+  "breakdowns": {
+    "outer_labels": [
+      "Association",
+      "Normalization",
+      "Contextualization"
+    ],
+    "outer_energy_nj": [
+      14.405355130434835,
+      1.1745938225773913,
+      20.254820173913068
+    ],
+    "outer_area_um2": [
+      112615.6728924,
+      77941.231786,
+      67856.64
+    ],
+    "inner_energy_nj": [
+      4.207304347826092,
+      0.05222608695652174,
+      7.270400000000047,
+      1.945599999999999,
+      0.05022052173913049,
+      0.7787102608695657,
+      0.1008939130434782,
+      0.9373886608382608,
+      0.045376000000000014,
+      0.006824639999999999,
+      0.03574539130434782,
+      0.14925913043478276,
+      9.150820173913003,
+      11.104000000000065
+    ],
+    "inner_area_um2": [
+      2230.272,
+      2475.0,
+      27728.6,
+      64000.0,
+      1338.1632,
+      8801.3376924,
+      6042.3,
+      67016.929254,
+      1612.373532,
+      441.529,
+      2879.58,
+      5990.82,
+      23036.64,
+      44820.0
+    ],
+    "inner_labels": [
+      "BA-CAM 16X64",
+      "Query Buffer",
+      "Key SRAM",
+      "6b ADCs",
+      "Fixed Scalers",
+      "Top2",
+      "Ptop Reg",
+      "Top32",
+      "SoftMax LUT",
+      "SoftMax Div.",
+      "SoftMax Acc.",
+      "Output Buff",
+      "BF16 MACs",
+      "Value SRAM"
+    ],
+    "inner_groups": [
+      "Association",
+      "Association",
+      "Association",
+      "Association",
+      "Association",
+      "Association",
+      "Association",
+      "Normalization",
+      "Normalization",
+      "Normalization",
+      "Normalization",
+      "Normalization",
+      "Contextualization",
+      "Contextualization"
+    ],
+    "onchip_energy_nj": 35.834769126925295,
+    "onchip_area_um2": 258413.5446784
+  },
+  "pareto": {
+    "Cerebras WSE2": {
+      "performance_per_area": 162.24986479177934,
+      "performance_per_watt": 293.0475065173766
+    },
+    "Groq TSP": {
+      "performance_per_area": 282.7586206896552,
+      "performance_per_watt": 683.3333333333334
+    },
+    "TPUv4": {
+      "performance_per_area": 458.3333333333333,
+      "performance_per_watt": 1432.2916666666667
+    },
+    "CAMformer": {
+      "performance_per_area": 3126.4870675028487,
+      "performance_per_watt": 7372.50459363203
+    },
+    "Spatten": {
+      "performance_per_area": 1393.1158308595088,
+      "performance_per_watt": 382
+    },
+    "CAMformer Proj.": {
+      "performance_per_area": 13593.422032621082,
+      "performance_per_watt": 15386.096543232063
+    },
+    "Spatten Proj.": {
+      "performance_per_area": 6057.025351563081,
+      "performance_per_watt": 6855.8142754863065
+    }
+  },
+  "source": "https://github.com/tmo324/CAMformerV1"
+}
