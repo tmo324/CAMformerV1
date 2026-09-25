@@ -14,13 +14,13 @@ The browser app needs no installation or build step. Plotly 3.1.0 is vendored lo
 
 ## Views
 
-- Attention lab: editable 8-bit query, 16 synthetic keys, local top-2/global top-k, exact top-k and dense binary attention, temperature control, output vector and weights.
+- Attention lab: connected single-query datapath with editable Q/K/V matrices, 1–64 query bits, up to 32 stored rows and 8 output dimensions. Trace matching, local/global selection, softmax, BF16 value reads, individual weighted products and the output sum. Run, step or inspect the whole operation. Default example: 8 rows × 8 bits with 3 output values.
 - Inside BA-CAM: XNOR contributions and normalized ideal response. This is a teaching model, not SPICE or an absolute-voltage prediction.
 - Pipeline: five steps through the three hardware stages, alongside released stage timing.
 - Design explorer: released Table IV sweeps, configuration pins and default-relative metrics.
 - Paper results: interactive Figures 6, 8 and 10, CSV/SVG exports and original author figures.
 
-Controls and query bits are encoded in the URL fragment. Pins remain local to the current page session. Query, temperature and toy-k controls affect the teaching example only, never the hardware-result snapshot.
+Controls and query bits are encoded in the URL fragment. Pins remain local to the current page session. Query, key, value, temperature and selection controls affect the teaching example only, never the hardware-result snapshot.
 
 ## Scientific scope
 
@@ -32,7 +32,7 @@ The headline displays published rounded values. The explorer displays computed r
 
 Figure 6 uses the raw circuit basis from its figure script. Figure 8 excludes DRAM from its on-chip breakdown. Figure 10 preserves the source coordinates and labels projections. Its SpAtten area coordinate uses CAMformer area; projected SpAtten also uses CAMformer power. The interactive chart omits the original circular “Pareto” guides because they are not computed non-dominated fronts. See the upstream TRACEABILITY.md for full provenance.
 
-The toy computation uses match counts as logits divided by an illustrative temperature, synthetic three-dimensional values, and JavaScript floating-point arithmetic. Ties use stable row order. It does not reproduce HAD training, learned scaling, BF16 rounding, ADC or PVT error.
+The editable datapath uses match counts multiplied by an illustrative score scale and divided by temperature. Entered values are rounded to BF16 storage; weights, products and accumulation use JavaScript floating-point arithmetic. Ties use stable row order. It does not reproduce HAD training, learned scaling, BF16 MAC rounding, ADC or PVT error.
 
 ## Regenerate data
 
@@ -48,6 +48,7 @@ The script imports and calls the upstream figure/sweep functions and validates t
 
 ```sh
 node p04_tests/attention.test.mjs
+node p04_tests/datapath.test.mjs
 node --check p01_ui/app.mjs
 ```
 

@@ -11,3 +11,11 @@ Verified on 2026-09-25.
 - No browser console errors in the tested interactions.
 
 The app is an educational and data-exploration companion, not an independent verification of the underlying research, analog circuit behavior, or trained-model accuracy.
+
+## Connected datapath revision
+
+- Hand-calculated two-row weighted output verified in the pure model and browser: [2,4] and [6,8] at equal weights produce [4,6].
+- Editing the first stored value to [4,4] updates products and output to [5,6], preserved after reload.
+- BF16 round-to-nearest-even ties checked, along with invalid dimensions, nonbinary inputs, nonfinite values and impossible top-k rejection.
+- 256 query cases check normalized weights, constant-value preservation and opposite-value cancellation.
+- Browser checks cover custom Q/K/V apply, row products, value-cell edits, query/match step progression, navigation to other views and back, and saved custom matrices. No console errors observed.
